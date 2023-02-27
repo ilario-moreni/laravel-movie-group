@@ -20,17 +20,14 @@
                     {{-- cast --}}
                     <p></p>
                     <div class="d-flex">
-                        <h3></h3>
+                        <h3>Noleggia il film</h3>
                         <a href="" class="btn btn-warning btn-square ms-2"><i class="fa-solid fa-cart-shopping"></i></a>
                     </div>
-                    <p></p>
                 </div>
             </div>
         </div>
         <div class="edit my-5">
             <a href="" class="btn btn-info btn-square"><i class="fa-solid fa-pen"></i></a>
-
-
         </div>
     </div>
 </div>
