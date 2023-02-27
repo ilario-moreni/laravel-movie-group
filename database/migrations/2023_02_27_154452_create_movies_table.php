@@ -17,12 +17,11 @@ return new class extends Migration
             $table->id();
             $table->string('title', 50);
             $table->string('original_title', 50)->nullable();
-            $table->string('nationatily', 20)->nullable();
+            $table->string('nationality', 20)->nullable();
             $table->date('release_date');
             $table->decimal('vote', 2, 1);
             $table->string('cast', 300)->nullable();
             $table->string('cover_path', 200)->nullable();
-            $table->timestamps();
         });
     }
 
