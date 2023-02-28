@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Controllers\PageController as PageController;
+use App\Controllers\MovieController as MovieController;
 
 /*
 |--------------------------------------------------------------------------
