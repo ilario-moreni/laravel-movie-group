@@ -21,13 +21,19 @@
                     <p>{{$movie['cast']}}</p>
                     <div class="d-flex">
                         <h3>Noleggia il film</h3>
-                        <a href="" class="btn btn-warning btn-square ms-2"><i class="fa-solid fa-cart-shopping"></i></a>
+                        <a href="" class="btn btn-warning btn-square ms-2">Noleggia</a>
                     </div>
                 </div>
             </div>
         </div>
         <div class="edit my-5">
-            <a href="{{route('admin.movies.edit', $movie->slug)}}" class="btn btn-info btn-square"><i class="fa-solid fa-pen"></i></a>
+            <a href="{{route('admin.movies.edit', $movie->slug)}}" class="btn btn-info btn-square">Modifica</a>
         </div>
+
+        <form action="{{route('admin.movies.destroy', ['movie' => $movie['slug']] )}}" method="POST">
+            @csrf
+            @method('DELETE')
+            <button type="submit" class="btn btn-danger">Cancella</button>
+        </form>
     </div>
 </div>
