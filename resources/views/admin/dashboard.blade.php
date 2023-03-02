@@ -22,7 +22,7 @@
             </div>
         </div>
     </div>
-    <div class="btton-to-home">
+    <div class="btton-to-home my-2">
         <a href="{{route('admin.movies.index')}}">
             <button class="btn btn-primary">
               vai alla home
