@@ -15,8 +15,9 @@ return new class extends Migration
     {
         Schema::create('movies', function (Blueprint $table) {
             $table->id();
-            $table->string('title', 90);
+            $table->string('title', 90)->unique();
             $table->string('original_title', 50)->nullable();
+            $table->string('slug', 100);
             $table->string('nationality', 20)->nullable();
             $table->date('release_date');
             $table->float('vote', 3, 1);
