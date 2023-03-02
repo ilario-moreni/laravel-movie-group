@@ -6,9 +6,9 @@
             <div class="row ">
                 <h4 class="series-title"> CURRENT MOVIES </h4>
             </div>
-            <a href="/new-page" onclick="window.location.href='/new-page';">
+            <a href="{{ route('movies.index') }}">
                 <button type="button" class="btn btn-primary">Go New Page</button>
-              </a>
+            </a>
         </div>
     </section>
 @endsection
