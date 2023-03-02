@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Movie;
 use App\Http\Requests\StoreMovieRequest;
 use App\Http\Requests\UpdateMovieRequest;
+use Illuminate\Support\Str;
 
 class MovieController extends Controller
 {
@@ -37,7 +38,18 @@ class MovieController extends Controller
      */
     public function store(StoreMovieRequest $request)
     {
-        //
+        $form_data = $request->validate();
+
+        $slug = Movie::generateSlug($request->title);
+
+        $form_data['slug'] = $slug;
+
+        $newMovie = new Movie();
+        $newMovie->fill($form_data);
+
+        $newMovie->save();
+
+        return redirect()->route('admin.movies.index')->with('message', 'Il project è stato creato correttamente');
     }
 
     /**
@@ -48,7 +60,7 @@ class MovieController extends Controller
      */
     public function show(Movie $movie)
     {
-        //
+        return view('admin.movies.show', compact('movie'));
     }
 
     /**
@@ -59,7 +71,7 @@ class MovieController extends Controller
      */
     public function edit(Movie $movie)
     {
-        //
+        return view('admin.movies.edit', compact('movie'));
     }
 
     /**
@@ -71,7 +83,15 @@ class MovieController extends Controller
      */
     public function update(UpdateMovieRequest $request, Movie $movie)
     {
-        //
+        $form_data = $request->validated();
+    
+        $slug = Movie::generateSlug($request->title, '-');
+   
+        $form_data['slug'] = $slug;
+   
+        $movie->update($form_data);
+       
+        return redirect()->route('admin.movies.index')->with('message', 'La modifica del film è andata a buon fine.');
     }
 
     /**
@@ -82,6 +102,9 @@ class MovieController extends Controller
      */
     public function destroy(Movie $movie)
     {
-        //
+        $movie->delete();
+
+        // Reindirizzamento all'index con messaggio di conferma eliminazione
+        return redirect()->route('admin.movies.index')->with('message', 'La cancellazione del film è andata a buon fine.');
     }
 }
