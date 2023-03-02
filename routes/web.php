@@ -22,7 +22,7 @@ Route::get('/', function () {
 });
 
 Route::middleware(['auth', 'verified'])->name('admin.')->prefix('admin')->group(function(){
-    Route::get('/', [DashboardController::class, 'index'])->name('home');
+    Route::get('/', [DashboardController::class, 'index']);
     Route::resource('movies', MovieController::class)->parameters(['movies' => 'movie:slug']);
 });
 
