@@ -7,15 +7,15 @@ use Illuminate\Foundation\Http\FormRequest;
 class StoreMovieRequest extends FormRequest
 {
     /**
-    * Determine if the user is authorized to make this request.
-    *
-    * @return bool
-    */
+     * Determine if the user is authorized to make this request.
+     *
+     * @return bool
+     */
     public function authorize()
     {
         return true;
     }
-    
+
     /**
      * Determine if the user is authorized to make this request.
      *
@@ -24,21 +24,21 @@ class StoreMovieRequest extends FormRequest
     public function rules()
     {
         return [
-            'title' => ['required','unique:movies','max:90'],
-            'original_title' => ['nullable','max:100'],
-            'nationality' => ['nullable','max:20'],
-            'release_date' => ['required','date'],
-            'vote' => ['required|numeric'],
-            'cast' => ['nullable','max:500'],
-            'cover_path' => ['nullable','max:200']
-        ]; 
+            'title' => ['required', 'unique:movies', 'max:90'],
+            'original_title' => ['nullable', 'max:100'],
+            'nationality' => ['nullable', 'max:20'],
+            'release_date' => ['required', 'date'],
+            'vote' => ['required', 'numeric'],
+            'cast' => ['nullable', 'max:500'],
+            'cover_path' => ['nullable', 'max:200']
+        ];
     }
 
     /**
      * Get the error messages for the defined validation rules.
      *
      * @return array
-    */
+     */
     public function messages()
     {
         return [
