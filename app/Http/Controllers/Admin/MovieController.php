@@ -8,6 +8,7 @@ use App\Http\Requests\StoreMovieRequest;
 use App\Http\Requests\UpdateMovieRequest;
 use Illuminate\Support\Str;
 use App\Models\Genre;
+use App\Models\Cast;
 
 
 class MovieController extends Controller
@@ -30,8 +31,9 @@ class MovieController extends Controller
      */
     public function create()
     {
+        $casts = Cast::all();
         $genres = Genre::all();
-        return view('admin.movies.create', compact('genres'));
+        return view('admin.movies.create', compact('genres', 'casts'));
     }
 
     /**
@@ -52,6 +54,9 @@ class MovieController extends Controller
         $newMovie->fill($form_data);
 
         $newMovie->save();
+
+        if($request->has('casts'))
+            $newMovie->technologies()->attach($request->casts);
 
         return redirect()->route('admin.movies.index')->with('message', 'Il film è stato creato correttamente');
     }
@@ -76,7 +81,8 @@ class MovieController extends Controller
     public function edit(Movie $movie)
     {
         $genres = Genre::all();
-        return view('admin.movies.edit', compact('movie', 'genres'));
+        $casts = Cast::all();
+        return view('admin.movies.edit', compact('movie', 'genres', 'casts'));
     }
 
     /**
@@ -95,6 +101,11 @@ class MovieController extends Controller
         $form_data['slug'] = $slug;
 
         $movie->update($form_data);
+
+        if($request->has('casts'))
+            $movie->casts()->sync($request->casts);
+        else
+            $movie->casts()->detach();
 
         return redirect()->route('admin.movies.index')->with('message', 'La modifica del film è andata a buon fine.');
     }
