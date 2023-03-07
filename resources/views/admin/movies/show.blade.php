@@ -17,10 +17,11 @@
                         <h5>{{ $movie['release_date'] }}</h5>
                         {{-- vote --}}
                         <h5>{{ $movie['vote'] }}</h5>
-                        {{-- cast --}}
-                        @if ($movie->genre)
+                        {{-- genre --}}
+                        @if($movie['genre_id'])
                             <p><strong>Genere: </strong> {{ $movie->genre->title }}</p>
                         @endif
+                        {{-- cast --}}
                         <p>
                             @if (sizeof($movie->casts))
                                 <strong>Cast: </strong>

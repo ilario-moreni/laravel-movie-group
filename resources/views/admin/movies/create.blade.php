@@ -51,8 +51,8 @@
                     {{-- genere --}}
                     <div class="mb-3">
                         <label for="" class="form-label">Seleziona genere</label>
-                        <select class="form-select" aria-label="Default select example">
-                            <option selected>Open this select menu</option>
+                        <select name="genre_id" class="form-select" aria-label="Default select example">
+                            <option value="">Scegli un genere</option>
                             @foreach ($genres as $genre)
                                 <option value="{{ $genre->id }}">{{ $genre->title }}</option>
                             @endforeach
