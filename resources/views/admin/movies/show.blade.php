@@ -18,7 +18,7 @@
                         {{-- vote --}}
                         <h5>{{ $movie['vote'] }}</h5>
                         {{-- genre --}}
-                        @if($movie['genre_id'])
+                        @if($movie->genre)
                             <p><strong>Genere: </strong> {{ $movie->genre->title }}</p>
                         @endif
                         {{-- cast --}}

@@ -6,6 +6,8 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Str;
 
+use App\Models\Genre;
+
 class Movie extends Model
 {
     use HasFactory;
@@ -17,7 +19,7 @@ class Movie extends Model
         return Str::slug($title, '-');
     }
 
-    public function genres()
+    public function genre()
     {
         return $this->belongsTo(Genre::class);
     }
