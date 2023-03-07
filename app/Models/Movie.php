@@ -12,7 +12,7 @@ class Movie extends Model
 
     protected $fillable = ['title', 'original_title', 'nationality', 'release_date', 'vote', 'cast', 'cover_path'];
 
-    public function generateSlug($title){
+    public static function generateSlug($title){
         return Str::slug($title, '-');
     }
 }

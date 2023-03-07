@@ -29,7 +29,7 @@ class UpdateMovieRequest extends FormRequest
             'original_title' => ['nullable','max:100'],
             'nationality' => ['nullable','max:20'],
             'release_date' => ['required','date'],
-            'vote' => ['required|numeric'],
+            'vote' => ['required', 'numeric'],
             'cast' => ['nullable','max:500'],
             'cover_path' => ['nullable','max:200']
         ]; 
