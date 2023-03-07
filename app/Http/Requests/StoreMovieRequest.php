@@ -29,8 +29,8 @@ class StoreMovieRequest extends FormRequest
             'nationality' => ['nullable', 'max:20'],
             'release_date' => ['required', 'date'],
             'vote' => ['required', 'numeric'],
-            'cast' => ['nullable', 'max:500'],
-            'cover_path' => ['nullable', 'max:200']
+            'cover_path' => ['nullable', 'max:200'],
+            'genre_id' => ['nullable', 'exists:genres,id'],
         ];
     }
 
@@ -50,8 +50,8 @@ class StoreMovieRequest extends FormRequest
             'release_date.date' => 'La data inserita non è valida',
             'vote.required' => 'Il voto è obbligatorio',
             'vote.numeric' => 'Il voto inserito non è valido',
-            'cast.max' => 'Il cast non deve avere più di :max caratteri',
-            'cover_path.max' => 'Il cast non deve avere più di :max caratteri',
+            'genre_id.exists' => 'Il genere non è valido',
+            'cover_path.max' => 'Il cover path non deve avere più di :max caratteri',
         ];
     }
 }

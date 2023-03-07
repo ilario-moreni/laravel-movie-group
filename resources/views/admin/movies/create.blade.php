@@ -44,11 +44,6 @@
                     </div>
 
                     <div class="mb-3">
-                        <label for="" class="form-label">Aggiungi cast</label>
-                        <input type="text" class="form-control" id="" aria-describedby="" name="cast">
-                    </div>
-
-                    <div class="mb-3">
                         <label for="" class="form-label">Aggiungi link locandina</label>
                         <input type="text" class="form-control" id="" aria-describedby="" name="cover_path">
                     </div>

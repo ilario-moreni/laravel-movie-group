@@ -56,7 +56,7 @@ class MovieController extends Controller
         $newMovie->save();
 
         if($request->has('casts'))
-            $newMovie->technologies()->attach($request->casts);
+            $newMovie->casts()->attach($request->casts);
 
         return redirect()->route('admin.movies.index')->with('message', 'Il film è stato creato correttamente');
     }
