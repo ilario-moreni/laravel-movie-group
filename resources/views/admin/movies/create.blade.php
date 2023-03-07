@@ -58,9 +58,6 @@
                         <label for="" class="form-label">Seleziona genere</label>
                         <select class="form-select" aria-label="Default select example">
                             <option selected>Open this select menu</option>
-                            <option value="1">One</option>
-                            <option value="2">Two</option>
-                            <option value="3">Three</option>
                             @foreach ($genres as $genre)
                                 <option value="{{ $genre->id }}">{{ $genre->title }}</option>
                             @endforeach
@@ -71,12 +68,10 @@
                     <div class="mb-3 pb-3">
                         @foreach ($casts as $cast)
                             @if ($errors->any())
-                                <input type="checkbox" value="{{ $cast->id }}" name="casts[]"
-                                    {{ in_array($cast->id, old('casts', [])) ? 'checked' : '' }}>
+                                <input type="checkbox" value="{{ $cast->id }}" name="casts[]">
                                 <label class="form-check-label">{{ $cast->title }}</label>
                             @else
-                                <input type="checkbox" value="{{ $cast->id }}" name="casts[]"
-                                    {{ $movie->casts->contains($cast) ? 'checked' : '' }}>
+                                <input type="checkbox" value="{{ $cast->id }}" name="casts[]">
                                 <label class="form-check-label">{{ $cast->title }}</label>
                             @endif
                         @endforeach

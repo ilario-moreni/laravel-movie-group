@@ -66,9 +66,6 @@
                         <label for="" class="form-label">Seleziona genere</label>
                         <select class="form-select" aria-label="Default select example">
                             <option selected>Open this select menu</option>
-                            <option value="1">One</option>
-                            <option value="2">Two</option>
-                            <option value="3">Three</option>
                             @foreach ($genres as $genre)
                                 <option value="{{ $genre->id }}"
                                     {{ $genre->id == old('genre_id', $movie->genre_id) ? 'selected' : '' }}>
@@ -79,7 +76,7 @@
 
                     {{-- cast --}}
                     <div class="mb-3 pb-3">
-                        @foreach ($technologies as $technology)
+                        @foreach ($casts as $cast)
                             @if ($errors->any())
                                 <input type="checkbox" value="{{ $cast->id }}" name="casts[]"
                                     {{ in_array($cast->id, old('casts', [])) ? 'checked' : '' }}>
