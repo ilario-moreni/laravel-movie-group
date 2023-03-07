@@ -7,6 +7,8 @@ use App\Models\Movie;
 use App\Http\Requests\StoreMovieRequest;
 use App\Http\Requests\UpdateMovieRequest;
 use Illuminate\Support\Str;
+use App\Models\Genre;
+
 
 class MovieController extends Controller
 {
@@ -28,7 +30,8 @@ class MovieController extends Controller
      */
     public function create()
     {
-        return view('admin.movies.create');
+        $genres = Genre::all();
+        return view('admin.movies.create', compact('genres'));
     }
 
     /**
@@ -72,7 +75,8 @@ class MovieController extends Controller
      */
     public function edit(Movie $movie)
     {
-        return view('admin.movies.edit', compact('movie'));
+        $genres = Genre::all();
+        return view('admin.movies.edit', compact('movie', 'genres'));
     }
 
     /**
