@@ -81,13 +81,13 @@
                     <div class="mb-3 pb-3">
                         @foreach ($technologies as $technology)
                             @if ($errors->any())
-                                <input type="checkbox" value="{{ $technology->id }}" name="technologies[]"
-                                    {{ in_array($technology->id, old('technologies', [])) ? 'checked' : '' }}>
-                                <label class="form-check-label">{{ $technology->title }}</label>
+                                <input type="checkbox" value="{{ $cast->id }}" name="casts[]"
+                                    {{ in_array($cast->id, old('casts', [])) ? 'checked' : '' }}>
+                                <label class="form-check-label">{{ $cast->title }}</label>
                             @else
-                                <input type="checkbox" value="{{ $technology->id }}" name="technologies[]"
-                                    {{ $project->technologies->contains($technology) ? 'checked' : '' }}>
-                                <label class="form-check-label">{{ $technology->title }}</label>
+                                <input type="checkbox" value="{{ $cast->id }}" name="casts[]"
+                                    {{ $movie->casts->contains($cast) ? 'checked' : '' }}>
+                                <label class="form-check-label">{{ $cast->title }}</label>
                             @endif
                         @endforeach
                     </div>
