@@ -39,7 +39,7 @@ class MovieController extends Controller
      */
     public function store(StoreMovieRequest $request)
     {
-        $form_data = $request->validate();
+        $form_data = $request->validated();
 
         $slug = Movie::generateSlug($request->title);
 
@@ -50,7 +50,7 @@ class MovieController extends Controller
 
         $newMovie->save();
 
-        return redirect()->route('admin.movies.index')->with('message', 'Il project è stato creato correttamente');
+        return redirect()->route('admin.movies.index')->with('message', 'Il film è stato creato correttamente');
     }
 
     /**
@@ -85,13 +85,13 @@ class MovieController extends Controller
     public function update(UpdateMovieRequest $request, Movie $movie)
     {
         $form_data = $request->validated();
-    
+
         $slug = Movie::generateSlug($request->title, '-');
-   
+
         $form_data['slug'] = $slug;
-   
+
         $movie->update($form_data);
-       
+
         return redirect()->route('admin.movies.index')->with('message', 'La modifica del film è andata a buon fine.');
     }
 

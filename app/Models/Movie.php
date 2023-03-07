@@ -10,9 +10,10 @@ class Movie extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['title', 'original_title', 'nationality', 'release_date', 'vote', 'cast', 'cover_path'];
+    protected $fillable = ['title', 'original_title', 'nationality', 'release_date', 'vote', 'cast', 'cover_path', 'slug'];
 
-    public static function generateSlug($title){
+    public static function generateSlug($title)
+    {
         return Str::slug($title, '-');
     }
 }

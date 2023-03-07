@@ -25,21 +25,21 @@ class UpdateMovieRequest extends FormRequest
     public function rules()
     {
         return [
-            'title' => ['required',Rule::unique('movies')->ignore($this->movie),'max:90'],
-            'original_title' => ['nullable','max:100'],
-            'nationality' => ['nullable','max:20'],
-            'release_date' => ['required','date'],
+            'title' => ['required', Rule::unique('movies')->ignore($this->movie), 'max:90'],
+            'original_title' => ['nullable', 'max:100'],
+            'nationality' => ['nullable', 'max:20'],
+            'release_date' => ['required', 'date'],
             'vote' => ['required', 'numeric'],
-            'cast' => ['nullable','max:500'],
-            'cover_path' => ['nullable','max:200']
-        ]; 
+            'cast' => ['nullable', 'max:500'],
+            'cover_path' => ['nullable', 'max:200']
+        ];
     }
 
     /**
      * Get the error messages for the defined validation rules.
      *
      * @return array
-    */
+     */
     public function messages()
     {
         return [
