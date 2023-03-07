@@ -68,7 +68,7 @@
                     </div>
 
                     {{-- cast --}}
-                    {{-- <div class="mb-3 pb-3">
+                    <div class="mb-3 pb-3">
                         @foreach ($casts as $cast)
                             @if ($errors->any())
                                 <input type="checkbox" value="{{ $cast->id }}" name="casts[]"
@@ -80,7 +80,7 @@
                                 <label class="form-check-label">{{ $cast->title }}</label>
                             @endif
                         @endforeach
-                    </div> --}}
+                    </div>
 
                     <div class="form-group mb-5 d-flex justify-content-end">
 
